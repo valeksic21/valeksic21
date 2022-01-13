@@ -8,3 +8,23 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 3000:3000
+
+db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Eugen28$
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: vjekoslav.aleksic@ibm.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "443:80"
